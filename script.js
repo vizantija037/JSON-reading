@@ -2,6 +2,7 @@ const btn1 =document.querySelector('.btn1');
 const btn2 =document.querySelector('.btn2');
 const btn3 =document.querySelector('.btn3');
 const btnAdd =document.querySelector('.btn-add');
+const btnFind =document.querySelector('.btn-find');
 const headerDiv = document.querySelector('.header')
 
 
@@ -84,3 +85,53 @@ function showForm(){
     document.querySelector('.header').innerHTML = output;
 
 }
+
+btnFind.addEventListener('click', findForm);
+
+function findForm(e){
+    e.preventDefault();
+    fetch('content.json')
+    .then(response=>response.json())
+    .then(data=>{
+        let searchForm = document.querySelector('.searchForm');
+        let searchText = document.querySelector('.inputText').value;
+        
+        let output = '';
+        data.filter(item => {
+            if(item.id!==`${searchText}`){
+                output = `
+                <h5>Searched item : <strong>${searchText}</strong></h5>
+                <div class="card">
+                <p>Sorry, there is no such item<p>
+                `
+            }  
+            document.querySelector('.header').innerHTML = output; 
+            console.log(output)
+        })
+        
+        searchForm.reset();
+
+        data.forEach(element => {
+            let output =`<h5>Searched item : <strong>${searchText}</strong></h5>`; 
+            if(element.id===`${searchText}` ) { 
+                       
+            output += `
+            
+            <div class="card">
+            <h3>Item - ${element.id}</h3>
+            <h4>Group - ${element.context}</h4>
+            <p><strong>Description</strong>:<br>${element.text}</p>
+            </div>
+        `
+        document.querySelector('.header').innerHTML = output;
+        
+        } 
+        
+        searchForm.reset();
+        
+        })
+        
+    })
+
+}
+

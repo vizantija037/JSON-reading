@@ -25,17 +25,18 @@ body{
     align-items: center;
     padding: 10px 0;
     width: 95%;
+    margin-left: 10px;
   
 }
 .btnAll {
     border: none;
     background-color: rgb(71, 96, 119);
     width: 100px;
-    height: 40px;
+    height: 30px;
     color: white;
     text-transform: uppercase;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 20px;
     font-size: 14px;
 }
 
@@ -48,6 +49,16 @@ body{
 }
 .btn-add:hover {
     background-color:rgb(139, 4, 4);
+}
+.btn-find {
+    background-color: rgb(1, 139, 47);
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+.btn-find:hover {
+    background-color:rgb(10, 100, 40);
 }
 .header {
     display: flex;
@@ -85,7 +96,9 @@ h4 {
     display: flex;
     width: 100%;
     margin: 0;
-
+}
+h5 {
+    font-weight: 400;
 }
 p {
     margin:10px 0;
@@ -94,8 +107,26 @@ p {
     background-color: white;
     padding: 10px;
     margin-bottom: 15px;
+    margin-top: 15px;
 }
 .title {
     padding: 15px 0 0 15px;
     color: rgb(47, 65, 90);;
+}
+form {
+    position: absolute;
+    right: 12%;
+}
+.inputText {
+    border: none;
+    margin-left: 30px;
+    width: 150px;
+    height: 30px;
+    color: rgb(161, 161, 161);
+    font-size: 12px;
+    padding: 0;
+    padding-left: 8px;
+    border-radius: 20px;
+   border: 1px solid  rgb(1, 139, 47);
+
 }
