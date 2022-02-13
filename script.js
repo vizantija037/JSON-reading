@@ -1,3 +1,4 @@
+
 const btn1 =document.querySelector('.btn1');
 const btn2 =document.querySelector('.btn2');
 const btn3 =document.querySelector('.btn3');
@@ -81,10 +82,42 @@ function showContext2(){
 btnAdd.addEventListener('click', showForm);
 
 function showForm(){
-    let output = "<h3>In preparation ....</h3>";
-    document.querySelector('.header').innerHTML = output;
 
+    let output = `
+    
+        <form id="addItem">
+        <input class="inputFind" type="text" id="itemTitle" name="itemTitle" placeholder="Insert Item Title">
+        <input class="inputFind" type="text" id="itemContext" name="itemContext" placeholder="Insert Item Context">
+        <textarea id="itemDescription" name="itemDescription" placeholder="Insert Item description"></textarea>
+        <button type="submit" class="submitAdd" >Submit</button>
+        </form>
+
+    `;
+
+    document.querySelector('.header').innerHTML = output;  
+
+
+    const form = document.getElementById('addItem')
+    form.addEventListener('submit',  (e) => {
+        e.preventDefault();
+        let output = `<h1>added item:</h1>`;
+        
+        const formData = new FormData(e.target);
+        const entries = formData.entries();
+        const data = Object.fromEntries(entries);
+
+        output += `
+            <div class="card">
+            <h3>Item - ${data.itemTitle}</h3>
+            <h4>Group - ${data.itemContext}</h4>
+            <p><strong>Description</strong>:<br>${data.itemDescription}</p>
+        `
+
+        document.querySelector('.header').innerHTML = output;
+        
+        })    
 }
+
 
 btnFind.addEventListener('click', findForm);
 

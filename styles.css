@@ -130,3 +130,52 @@ form {
    border: 1px solid  rgb(1, 139, 47);
 
 }
+
+#addItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    left: 0;
+    padding-top: 20px;
+}
+.inputFind{
+    width: 40%;
+    min-height: 15px;
+    border: 1px solid rgb(216, 160, 160);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+#itemDescription {
+    width: 40%;
+    min-height: 125px;
+    border: 1px solid rgb(216, 160, 160);
+    border-radius: 20px;
+    padding: 10px;
+    font-family: Lato;
+    resize: vertical;
+    overflow: hidden;
+}
+.submitAdd{
+    width: 90px;
+    min-height: 30px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    background-color:rgb(172, 5, 5);
+    color: white;
+}
+.submitAdd:hover{
+    cursor: pointer;
+    background-color:rgb(139, 4, 4);
+
+}
+
+.d-none {
+    display: none;
+}
