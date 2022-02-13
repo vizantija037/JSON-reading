@@ -6,7 +6,33 @@ body{
     padding: 0;
 
 }
-
+.loader {
+    position: absolute;
+    top: calc(50% - 40px) ;
+    left: calc(50% - 40px) ;
+    border: 10px solid transparent; /* Light grey */
+    border-top: 10px solid rgb(71, 96, 119); /* Blue */
+    border-bottom: 10px solid rgb(71, 96, 119); /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1.5s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .loader-holder {
+      position: absolute;
+      display: none;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.432);
+      z-index: 101;
+  }
 .main {
     display: flex;
     flex-direction: column;

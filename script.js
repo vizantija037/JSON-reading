@@ -51,7 +51,8 @@ const headerDiv = document.querySelector(".header");
 btn1.addEventListener("click", showAll);
 
 function showAll() {
-   
+  loaderVisible();
+  setTimeout(loaderInvisible, 500)
         let output = "<h1>All data</h1>";
         content.forEach(element => {
             
@@ -68,9 +69,21 @@ function showAll() {
     })
 }
 
+
+const loader = document.querySelector('.loader-holder');
+
+function loaderVisible(){
+    loader.style.display = 'flex';
+}
+function loaderInvisible() {
+  loader.style.display = 'none';
+}
+loaderInvisible();
 btn2.addEventListener("click", showContext);
 
 function showContext() {
+    loaderVisible();
+    setTimeout(loaderInvisible, 300)
     headerDiv.classList.remove('active');
             let output = "<h1>brat moj - context</h1>";
         content.forEach(element => {
@@ -85,12 +98,16 @@ function showContext() {
         }) 
           
         document.querySelector('.header').innerHTML = output;
+
     }
+    setTimeout(showContext(), 1000);
 
 
 btn3.addEventListener("click", showContext2);
 
 function showContext2(){
+  loaderVisible();
+    setTimeout(loaderInvisible, 300)
         let output = "<h1>familija - context</h1>";
         content.forEach(element => {
             if(element.context==="familija") {           
@@ -126,6 +143,8 @@ function showForm(){
     const form = document.getElementById('addItem')
     form.addEventListener('submit',  (e) => {
         e.preventDefault();
+        loaderVisible();
+        setTimeout(loaderInvisible, 300)
         let output = `<h1>added item:</h1>`;
         
         const formData = new FormData(e.target);
