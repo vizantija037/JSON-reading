@@ -13,13 +13,26 @@
 </head>
 
 <body>
+  
  <div class="main">
    <div class="title">
-     Loading data from local JSON file
+     dataManipulation - VanilaJS
    </div>
-   <div class="loader-holder">
-   <div class="loader">
+
+   <div class="modal-holder" id="modal-holder">
+        <div class="modal" id="modal">
+            <div class="modalHeader">
+              <h1 class="modal-title" id="modal-title"></h1>   
+              <button class="close" id="close">Close</button>
+            </div>
+            <div class="modal-footer"></div>
+            <div class="modal-body"></div>
+        </div>
    </div>
+    <div class="loader-holder">
+    <div class="loader">
+    </div>
+
   </div>
    <div class="btns">
      <button class="btn1 btnAll">All data</button>
@@ -27,8 +40,8 @@
      <button class="btn3 btnAll">Familija</button>
      <button class="btn-add btnAll">Add item</button>
      <form class="searchForm">
-     <input type="text" class="inputText" placeholder="Type item to find" value="">
-     <input type="submit" class="btn-find btnAll" value="search">
+     <input type="text" class="inputText" id="input-find" placeholder="Search data as typing" value="">
+
      
 
     </form>

@@ -3,43 +3,63 @@ let content = [
     id: "home",
     context: "brat moj",
     text: "Lorem Ipsum is simply dummy, Lorem Ipsum is simply dummy. PageMaker including versions of Lorem Ipsum.",
+    country: "Serbia",
+    flag: "img/serbia.jpg"
+  
+
   },
   {
     id: "contact",
     context: "familija",
     text: "Lorem Ipsum is simply dum when aldus PageMaker including versions of Lorem Ipsum. aldus Pa aldus PageMaker including versions of Lorem IpsumgeMaker including versions of Lorem Ipsum",
+    country: "Serbia",
+    flag: "img/serbia.jpg"
   },
   {
     id: "something",
     context: "brat moj",
     text: "Lorem Ipsum is simply Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing softwar",
+    country: "Serbia",
+    flag: "img/serbia.jpg"
+
   },
   {
     id: "about",
     context: "brat moj",
     text: "Lorem Ipsum is simply dummy text of the printing an text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently asdlkfjalsdkj laksdljgka lsdglaskdhglaksdhg are like Aldus PageMaker including versions of Lorem Ipsum.",
+    country: "Serbia",
+    flag: "img/serbia.jpg"
   },
   {
-    id: "contact",
+    id: "home 2",
     context: "familija",
     text: "Lorem Ipsum is simply dum when aldus PageMaker including versions of Lorem Ipsum. aldus Pa aldus PageMaker including versions of Lorem IpsumgeMaker including versions of Lorem Ipsum",
+    country: "Sweden",
+    flag: "img/sweden.jpg"
   },
   {
-    id: "something",
+    id: "something -3",
     context: "brat moj",
     text: "Lorem Ipsum is simply Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing softwar",
+    country: "Hungary",
+    flag: "img/hungary.jpg"
   },
   {
-    id: "contact",
+    id: "Senior",
     context: "familija",
     text: "Lorem Ipsum is simply dum when aldus PageMaker including versions of Lorem Ipsum. aldus Pa aldus PageMaker including versions of Lorem IpsumgeMaker including versions of Lorem Ipsum",
+    country: "Swiss",
+    flag: "img/swiss.jpg"
   },
   {
-    id: "something",
+    id: "junior",
     context: "brat moj",
     text: "Lorem Ipsum is simply Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing softwar",
+    country: "Maskare",
+    flag: "img/maskare.jpg"
   },
 ];
+
 
 const btn1 = document.querySelector(".btn1");
 const btn2 = document.querySelector(".btn2");
@@ -61,12 +81,72 @@ function showAll() {
             <h3>Item - ${element.id}</h3>
             <h4>Group - ${element.context}</h4>
             <p><strong>Description</strong>:<br>${element.text}</p>
+            <button class="details details-btn" data-id="${element.id}" id="details">Details</button>
             </div>
         `
-       
         document.querySelector('.header').innerHTML = output;
+
+    // /const btnClose = document.getElementById('details')
         
-    })
+    // /console.log(btnClose)
+        })
+
+        const btnArr = document.querySelectorAll('.details-btn')
+       
+          btnArr.forEach((btn)=>{
+            btn.addEventListener('click',showModal)
+          })
+
+          const close = document.getElementById('close');
+          close.addEventListener('click', closeModal);
+
+       /*btnArr.forEach((btn)=>{
+         btn.addEventListener('click', showModal);
+         
+         const close = document.getElementById('close');
+         close.addEventListener('click', closeModal);
+         function closeModal(){
+           let modalHolder = document.getElementById('modal-holder');
+           modalHolder.style.display = 'none';
+         }
+       })*/
+
+
+       console.log(btnArr)
+}
+
+
+function closeModal(){
+  let modalHolder = document.getElementById('modal-holder');
+  modalHolder.style.display = 'none';
+}
+
+
+function showModal(e){
+  let modalHolder = document.getElementById('modal-holder');
+  modalHolder.style.display = 'flex';
+  const id = e.target.getAttribute('data-id')
+  const obj = content.find(r => r.id === id)
+
+  let output = `
+ 
+            <h3 class="modal-title">Item - ${obj.id}</h3>
+            <h4 class="modal-context"><strong>Group - ${obj.context}</h4></strong>
+            <p class="modal-description"><strong>Description</strong>:${obj.text}</p>
+            <h4 class="modal-context"><strong>Country - ${obj.country}</h4></strong>
+            <img src="${obj.flag}"/>
+
+
+        `
+        document.querySelector('.modal-body').innerHTML = output;
+
+  if(!obj) {
+    console.log('error')
+  }
+
+  console.log(obj)
+
+   
 }
 
 
@@ -93,14 +173,23 @@ function showContext() {
             <h3>Item - ${element.id}</h3>
             <h4>Group - ${element.context}</h4>
             <p><strong>Description</strong>:<br>${element.text}</p>
+            <button class="details details-btn" data-id="${element.id}">Details</button>
             </div>
         `}
         }) 
           
         document.querySelector('.header').innerHTML = output;
+        const btnArr = document.querySelectorAll('.details-btn')
+       
+        btnArr.forEach((btn)=>{
+          btn.addEventListener('click',showModal)
+        })
 
+        const close = document.getElementById('close');
+        close.addEventListener('click', closeModal);
     }
-    setTimeout(showContext(), 1000);
+    
+
 
 
 btn3.addEventListener("click", showContext2);
@@ -116,10 +205,19 @@ function showContext2(){
             <h3>Item - ${element.id}</h3>
             <h4>Group - ${element.context}</h4>
             <p><strong>Description</strong>:<br>${element.text}</p>
+            <button class="details details-btn" data-id="${element.id}">Details</button>
             </div>
         `}
         })
         document.querySelector('.header').innerHTML = output;
+        const btnArr = document.querySelectorAll('.details-btn')
+       
+        btnArr.forEach((btn)=>{
+          btn.addEventListener('click',showModal)
+        })
+
+        const close = document.getElementById('close');
+        close.addEventListener('click', closeModal);
     }
 
 btnAdd.addEventListener("click", showForm);
@@ -156,6 +254,7 @@ function showForm(){
             <h3>Item - ${data.itemTitle}</h3>
             <h4>Group - ${data.itemContext}</h4>
             <p><strong>Description</strong>:<br>${data.itemDescription}</p>
+            
         `
 
         document.querySelector('.header').innerHTML = output;
@@ -168,8 +267,12 @@ function showForm(){
         content.push(newItem);
         })    
 }
+const inputField = document.getElementById('input-find');
+inputField.addEventListener("keyup", findForm)
+console.log(inputField)
+//btnFind.addEventListener("click", findForm);
 
-btnFind.addEventListener("click", findForm);
+
 
 function findForm(e){
     e.preventDefault();
@@ -194,10 +297,31 @@ function findForm(e){
                     <h3>Item - ${element.id}</h3>
                     <h4>Group - ${element.context}</h4>
                     <p><strong>Description</strong>:<br>${element.text}</p>
+                    <button class="details details-btn" data-id="${element.id}">Details</button>
                     </div>
                     `          
             })
         document.querySelector('.header').innerHTML = output;
         }
-        searchForm.reset()
+        document.querySelector('.header').innerHTML = output;
+        const btnArr = document.querySelectorAll('.details-btn')
+       
+        btnArr.forEach((btn)=>{
+          btn.addEventListener('click',showModal)
+        })
+
+        const close = document.getElementById('close');
+        close.addEventListener('click', closeModal);
+        
      }
+
+
+
+
+  //const detailsBtn = '<button class="details">Details</button>';   
+
+
+
+  
+
+
