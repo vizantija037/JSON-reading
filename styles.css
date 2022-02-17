@@ -47,23 +47,32 @@ body{
 .btns {
     display: flex;
     flex-direction: row;
-    justify-content: left;
     align-items: center;
     padding: 10px 0;
-    width: 95%;
-    margin-left: 10px;
-  
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .btnAll {
     border: none;
     background-color: rgb(71, 96, 119);
-    width: 100px;
-    height: 30px;
+    max-width: 270px;
+    height: 50px;
     color: white;
     text-transform: uppercase;
     margin: 10px;
-    border-radius: 20px;
+    border-radius: 40px;
     font-size: 14px;
+    flex-basis: 33%;
+    
+}
+.searchForm {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    justify-content: center;
+    margin: 0;
+    min-width: 100%;
 }
 
 .btnAll:hover {
@@ -89,13 +98,14 @@ body{
 .header {
     display: flex;
     flex-direction: column;
-    width: 94%;
+    width: 90%;
     min-height: 50px;
     background-color: rgb(228, 229, 230);
     padding:10px;
     border-radius: 10px;
     align-self: center;
-    margin: 0 10px;
+
+    flex-wrap: wrap;
 }
 
 h1 {
@@ -158,14 +168,17 @@ form {
 
 .inputText {
     border: none;
-    width: 200px;
-    height: 30px;
+    width: 90%;
+    flex-wrap: wrap;
+    height: 50px;
     color: rgb(161, 161, 161);
     font-size: 14px;
     padding: 0;
     padding-left: 10px;
-    border-radius: 20px;
+    border-radius: 40px;
     border: 1px solid  rgb(1, 139, 47);
+    padding-right: 8px;
+    margin-left: 0; 
 
 }
 
@@ -181,16 +194,16 @@ form {
     padding-top: 20px;
 }
 .inputFind{
-    width: 40%;
-    min-height: 15px;
+    width: 60%;
+    min-height: 40px;
     border: 1px solid rgb(216, 160, 160);
     border-radius: 20px;
     margin-bottom: 20px;
     padding: 10px;
 }
 #itemDescription {
-    width: 40%;
-    min-height: 125px;
+    width: 60%;
+    min-height: 200px;
     border: 1px solid rgb(216, 160, 160);
     border-radius: 20px;
     padding: 10px;
@@ -199,11 +212,11 @@ form {
     overflow: hidden;
 }
 .submitAdd{
-    width: 90px;
-    min-height: 30px;
+    width: 150px;
+    min-height: 50px;
     margin: 20px 0;
     border: none;
-    border-radius: 20px;
+    border-radius: 40px;
     padding: 10px;
     background-color:rgb(172, 5, 5);
     color: white;
@@ -281,13 +294,25 @@ form {
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 60%;
     min-height: 60%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
     border-radius: 20px;
+}
+@media (max-width:700px){
+    .modal {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        min-height: 80%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        border-radius: 20px;
+    }
 }
 .modalHeader {
     background-color: rgb(52, 78, 104);

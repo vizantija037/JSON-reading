@@ -58,6 +58,41 @@ let content = [
     country: "Maskare",
     flag: "img/maskare.jpg"
   },
+  {
+    id: "about-2",
+    context: "brat moj",
+    text: "Lorem Ipsum is simply dummy text of the printing an text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently asdlkfjalsdkj laksdljgka lsdglaskdhglaksdhg are like Aldus PageMaker including versions of Lorem Ipsum.",
+    country: "Serbia",
+    flag: "img/serbia.jpg"
+  },
+  {
+    id: "home 3",
+    context: "familija",
+    text: "Lorem Ipsum is simply dum when aldus PageMaker including versions of Lorem Ipsum. aldus Pa aldus PageMaker including versions of Lorem IpsumgeMaker including versions of Lorem Ipsum",
+    country: "Sweden",
+    flag: "img/sweden.jpg"
+  },
+  {
+    id: "something -4",
+    context: "brat moj",
+    text: "Lorem Ipsum is simply Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing softwar",
+    country: "Hungary",
+    flag: "img/hungary.jpg"
+  },
+  {
+    id: "Senior1",
+    context: "familija",
+    text: "Lorem Ipsum is simply dum when aldus PageMaker including versions of Lorem Ipsum. aldus Pa aldus PageMaker including versions of Lorem IpsumgeMaker including versions of Lorem Ipsum",
+    country: "Swiss",
+    flag: "img/swiss.jpg"
+  },
+  {
+    id: "junior3",
+    context: "brat moj",
+    text: "Lorem Ipsum is simply Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing softwar",
+    country: "Maskare",
+    flag: "img/maskare.jpg"
+  }
 ];
 
 
@@ -96,9 +131,10 @@ function showAll() {
           btnArr.forEach((btn)=>{
             btn.addEventListener('click',showModal)
           })
-
+        
           const close = document.getElementById('close');
           close.addEventListener('click', closeModal);
+          
 
        /*btnArr.forEach((btn)=>{
          btn.addEventListener('click', showModal);
@@ -115,6 +151,16 @@ function showAll() {
        console.log(btnArr)
 }
 
+
+const modal = document.getElementById('modal');
+document.addEventListener('click', modalOut);
+
+function modalOut (e) {
+  let modalHolder = document.getElementById('modal-holder');
+  if(e.target==modalHolder){
+    return closeModal();
+  }
+}
 
 function closeModal(){
   let modalHolder = document.getElementById('modal-holder');
@@ -134,7 +180,7 @@ function showModal(e){
             <h4 class="modal-context"><strong>Group - ${obj.context}</h4></strong>
             <p class="modal-description"><strong>Description</strong>:${obj.text}</p>
             <h4 class="modal-context"><strong>Country - ${obj.country}</h4></strong>
-            <img src="${obj.flag}"/>
+            <img src="${obj.flag}" alt="Flag Image"/>
 
 
         `
